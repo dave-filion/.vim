@@ -13,6 +13,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive' " Git wrpper
 Plugin 'vim-airline/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-sensible'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,4 +58,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 set guifont=Monaco:h20
+
+" Nerd tree toggle
+map <C-n> :NERDTreeToggle<CR> 
 

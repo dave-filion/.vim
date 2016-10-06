@@ -17,6 +17,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-sensible'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'mileszs/ack.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -57,8 +59,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set guifont=Monaco:h20
+set guifont=Monaco:h12
 
 " Nerd tree toggle
 map <C-n> :NERDTreeToggle<CR> 
+
+" turn off word wrapping
+set nowrap
 

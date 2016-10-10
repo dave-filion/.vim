@@ -25,8 +25,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -52,6 +51,7 @@ set showmatch
 
 set incsearch " search as character are entered
 set hlsearch " highlight matches
+
 " turn off search highlight
 nnoremap <leader><space> :nolsearch<CR>
 
@@ -86,7 +86,16 @@ let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+set backspace=2   " Backspace deletes like most programs in insert mode
+
+set nobackup
+set nowritebackup
+set noswapfile
+set ruler

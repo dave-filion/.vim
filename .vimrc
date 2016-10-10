@@ -1,18 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive' " Git wrpper
-Plugin 'vim-airline/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'vim-airline/vim-airline' " Makes status bar pretty
+Plugin 'Valloric/YouCompleteMe' " Code completion suggestions
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-sensible'
@@ -25,7 +20,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'easymotion/vim-easymotion'
+Plugin 'easymotion/vim-easymotion' " easy word motion
+Plugin 'junegunn/goyo.vim' " distraction free
+Plugin 'amix/vim-zenroom2'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -85,13 +82,14 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+" Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\.git$\|\.yardoc\|fixtures\|coverage\|public$|log\|tmp$',
+        \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+        \  }
 
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 
@@ -99,3 +97,6 @@ set nobackup
 set nowritebackup
 set noswapfile
 set ruler
+
+" Use Ag over grep
+set grepprg=ag\ --nogroup\ --nocolor
